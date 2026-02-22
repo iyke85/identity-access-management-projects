@@ -4,7 +4,8 @@
 # Introduction
 
 This project demonstrates end-to-end identity lifecycle automation across both Okta and Microsoft Entra environments. By configuring Joiner, Mover, and Leaver workflows in Entra and setting up attribute-based access controls and policy enforcement in Okta, the solution provides a coordinated, secure, and automated way to handle user provisioning, access transitions, and offboarding.
-
+# Project Title
+Automated Office 365 User Onboarding with Okta Workflows
 # Project Overview
 Built an automated identity onboarding solution using Okta Workflows to provision Office 365 access for newly created users. The workflow assigns users to the appropriate Office 365 access group and sends real-time email notifications to IT for visibility and audit tracking.
 # Tools & Technologies
@@ -35,20 +36,38 @@ Built an automated identity onboarding solution using Okta Workflows to provisio
 - SaaS application provisioning
 - Notification and audit workflows
 - Secure onboarding design
-  
+# Project Title
+# Automated User Suspension Handling and Notification with Okta Workflows
+![Architecture Diagram](https://i.imgur.com/VUiyeiv.png)
+# Project Overview
+Designed and implemented an automated identity governance workflow using Okta Workflows to handle user suspension events. The workflow adds suspended users to a dedicated security group right away and sends an automated email notification, improving visibility, audit readiness, and response time during account lifecycle events.
+ # Workflow Logic
+- Triggered automatically when a user account is suspended in Okta
+- Retrieves the suspended user’s profile details for context and logging
+- Adds the user to a predefined Suspended Users group for centralized tracking
+- Sends an automated email notification to IT/Security via Office 365
+- Logs the workflow execution for audit and troubleshooting purposes
+![Architecture Diagram](https://i.imgur.com/1GPgrxV.png)
+![Architecture Diagram](https://i.imgur.com/tHC8kaH.png)
+![Architecture Diagram](https://i.imgur.com/6aMI1yg.png)
+# Business Impact
+- Ensured immediate and consistent handling of suspended accounts
+- Eliminated manual tracking of suspended users
+- Improved security visibility through real-time notifications
+- Supported audit and compliance requirements by maintaining group-based records
+- Reduced risk of delayed response during security or HR-driven suspensions
+# Key Skills Demonstrated
+- Identity lifecycle automation
+- Security-focused workflow design
+- Okta event-based triggers
+- Group-based access control
+- Automated notification and audit workflows
+# Project Title
+Contractor Access Control Using Attribute-Based Grouping and Adaptive Policies in Okta
+# Project Overview
+Designed and implemented a secure contractor access model in Okta using attribute-based group rules and targeted authentication policies. The solution automatically classifies contractor accounts, enforces stronger password requirements, and applies multi-factor authentication to reduce risk associated with non-employee access.
+![Architecture Diagram](https://i.imgur.com/ZdRJthd.png)
 
-## Architecture After Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/tWedVBQ.png)
-
-The architecture of the mini honeynet in Azure consists of the following components:
-
-- Virtual Network (VNet)
-- Network Security Group (NSG)
-- Virtual Machines (2 Windows, 1 Linux)
-- Log Analytics Workspace
-- Azure Key Vault
-- Azure Storage Account
-- Microsoft Sentinel
 
 In the "BEFORE" metrics analysis, all resources were initially deployed and left exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls configured with open access, while all other resources were deployed with public endpoints accessible from the Internet, rendering private endpoints unnecessary.
 
