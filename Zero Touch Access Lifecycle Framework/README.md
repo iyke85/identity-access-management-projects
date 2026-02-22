@@ -1,10 +1,9 @@
-# Building a SOC + Honeynet in Azure (Live Traffic)
+# Zero Touch Access Lifecycle Framework
 ![Cloud Honeynet / SOC](https://i.imgur.com/8dNlZNO.jpg)
 
 ## Introduction
 
-In this project, I developed a miniature honeynet infrastructure within the Azure environment, integrating diverse log sources into a centralized Log Analytics workspace. This workspace serves as the foundation for Microsoft Sentinel, facilitating the creation of attack maps, alert triggers, and incident management.
-The project methodology involved the initial assessment of security metrics within the insecure environment over 24 hours. Subsequently, rigorous security controls were implemented to fortify the environment. Following the hardening phase, another 24-hour metric analysis was conducted to evaluate the efficacy of the applied security measures.
+This project demonstrates end-to-end identity lifecycle automation across both Okta and Microsoft Entra environments. By configuring Joiner, Mover, and Leaver workflows in Entra and implementing attribute-based access controls and policy enforcement in Okta, the solution delivers a coordinated, secure, and automated approach to user provisioning, access transitions, and offboarding.
 
 The showcased metrics offer a holistic perspective on the security stance of the environment, both pre- and post-implementation of security controls. These insights serve as a valuable resource for understanding threat detection, optimizing incident response strategies, and enhancing overall resilience.
 
