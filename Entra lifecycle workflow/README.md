@@ -2,11 +2,11 @@
 ![Cloud Honeynet / SOC](https://i.imgur.com/EpDGiZG.png)
 
 # Introduction
-
-This project demonstrates end-to-end identity lifecycle automation across both Okta and Microsoft Entra environments. By configuring Joiner, Mover, and Leaver workflows in Entra and setting up attribute-based access controls and policy enforcement in Okta, the solution provides a coordinated, secure, and automated way to handle user provisioning, access transitions, and offboarding.
+In this project, I implemented a centralized identity governance framework in Okta focused on secure onboarding, suspension management, and contractor access control. The goal was to standardize access assignment at the point of user creation while introducing tighter controls for temporary access restrictions and third-party users.
+Using attribute-based group rules, new users are automatically assigned to appropriate groups during onboarding. When a user is suspended, their status change places them into a dedicated Suspended Users group and sends an automated email notification to the Security team. Contractor accounts are dynamically identified using profile attributes and governed by adaptive policies that enforce stricter authentication and session controls.
 # Project Title
 Automated Office 365 User Onboarding with Okta Workflows
-# Project Overview
+# Overview
 Built an automated identity onboarding solution using Okta Workflows to provision Office 365 access for newly created users. The workflow assigns users to the appropriate Office 365 access group and sends real-time email notifications to IT for visibility and audit tracking.
 # Tools & Technologies
 - Okta Identity Cloud
@@ -39,7 +39,7 @@ Built an automated identity onboarding solution using Okta Workflows to provisio
 # Project Title
 # Automated User Suspension Handling and Notification with Okta Workflows
 ![Architecture Diagram](https://i.imgur.com/VUiyeiv.png)
-# Project Overview
+# Overview
 Designed and implemented an automated identity governance workflow using Okta Workflows to handle user suspension events. The workflow adds suspended users to a dedicated security group right away and sends an automated email notification, improving visibility, audit readiness, and response time during account lifecycle events.
  # Workflow Logic
 - Triggered automatically when a user account is suspended in Okta
@@ -64,7 +64,7 @@ Designed and implemented an automated identity governance workflow using Okta Wo
 - Automated notification and audit workflows
 # Project Title
 Contractor Access Control Using Attribute-Based Grouping and Adaptive Policies in Okta
-# Project Overview
+# Overview
 Designed and implemented a secure contractor access model in Okta using attribute-based group rules and targeted authentication policies. The solution automatically classifies contractor accounts, enforces stronger password requirements, and applies multi-factor authentication to reduce risk associated with non-employee access.
 # Tools & Technologies
 - Okta Identity Cloud
@@ -114,55 +114,7 @@ Designed and implemented a secure contractor access model in Okta using attribut
 - MFA enforcement and factor restrictions
 - Okta group rule configuration
 
-  
-
-
-In the "BEFORE" metrics analysis, all resources were initially deployed and left exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls configured with open access, while all other resources were deployed with public endpoints accessible from the Internet, rendering private endpoints unnecessary.
-
-In the "AFTER" metrics assessment, Network Security Groups underwent fortification by enforcing a stringent policy, blocking ALL traffic except for connections originating from my designated admin workstation. Furthermore, additional protection was afforded to all other resources through the reinforcement of their built-in firewalls, supplemented by the implementation of Private Endpoints.
-
-
-## Attack Maps Before Hardening / Security Controls
-![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/oH4Xej5.png)<br>
-![Linux Syslog Auth Failures](https://i.imgur.com/c2KbH2A.png)<br>
-![Windows RDP/SMB Auth Failures](https://i.imgur.com/esMgryr.png)<br>
-
-## Metrics Before Hardening / Security Controls
-
-The following table shows the metrics we measured in our insecure environment for 24 hours:
-Start Time 2024-01-27T02:37:14.7683908Z
-Stop Time 2023-03-11T21:03:08.1360519Z
-
-| Metric                   | Count
-| ------------------------ | -----
-| SecurityEvent            | 18380
-| Syslog                   | 13314
-| SecurityAlert            | 6
-| SecurityIncident         | 334
-| AzureNetworkAnalytics_CL | 58501
-
-## Attack Maps Before Hardening / Security Controls
-
-```All map queries returned no results due to no instances of malicious activity for the 24 hours after hardening.```
-
-## Metrics After Hardening / Security Controls
-
-The following table shows the metrics we measured in our environment for another 24 hours, but after I applied security controls:
-Start Time 2024-02-07T02:31:10.4920242Z
-Stop Time	2024-02-08T02:31:10.4920242Z
-
-| Metric                   | Count
-| ------------------------ | -----
-| SecurityEvent            | 9590
-| Syslog                   | 0
-| SecurityAlert            | 1
-| SecurityIncident         | 0
-| AzureNetworkAnalytics_CL | 0
-
 ## Conclusion
 
-In this Azure-based project, a mini honeynet was meticulously crafted, with log sources seamlessly integrated into a Log Analytics workspace. Leveraging Microsoft Sentinel, the system adeptly triggered alerts and swiftly addressed incidents based on the processed logs.
-
-A pivotal aspect of the project involved meticulously measuring metrics within the insecure environment before the implementation of security controls. After the fortification measures, a follow-up evaluation of metrics was conducted, showcasing a remarkable reduction in security events and incidents. This significant decrease underscores the efficacy of the implemented security measures.
-
-Furthermore, it's pertinent to acknowledge that in environments where resources are extensively utilized by regular users, there could be a higher frequency of security events and alerts in the 24 hours following the implementation of security controls.
+Through structured onboarding automation, suspended user handling, and contractor-specific access controls, this project establishes a clear governance model within Okta. Group-based automation ensures accurate access provisioning, while suspension workflows introduce accountability and immediate restriction when needed.
+The use of attribute-based grouping combined with adaptive authentication policies provides stronger protection for contractor accounts, which typically present a higher risk. Overall, the solution reflects a mature approach to identity security that balances automation, oversight, and risk-based access control.
