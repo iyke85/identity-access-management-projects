@@ -1,20 +1,41 @@
 # Zero Touch Access Lifecycle Framework
-![Cloud Honeynet / SOC](https://i.imgur.com/8dNlZNO.jpg)
+![Cloud Honeynet / SOC](https://i.imgur.com/EpDGiZG.png)
 
-## Introduction
+# Introduction
 
-This project demonstrates end-to-end identity lifecycle automation across both Okta and Microsoft Entra environments. By configuring Joiner, Mover, and Leaver workflows in Entra and implementing attribute-based access controls and policy enforcement in Okta, the solution delivers a coordinated, secure, and automated approach to user provisioning, access transitions, and offboarding.
+This project demonstrates end-to-end identity lifecycle automation across both Okta and Microsoft Entra environments. By configuring Joiner, Mover, and Leaver workflows in Entra and setting up attribute-based access controls and policy enforcement in Okta, the solution provides a coordinated, secure, and automated way to handle user provisioning, access transitions, and offboarding.
 
-The showcased metrics offer a holistic perspective on the security stance of the environment, both pre- and post-implementation of security controls. These insights serve as a valuable resource for understanding threat detection, optimizing incident response strategies, and enhancing overall resilience.
-
-- SecurityEvent (Windows Event Logs)
-- Syslog (Linux Event Logs)
-- SecurityAlert (Log Analytics Alerts Triggered)
-- SecurityIncident (Incidents created by Sentinel)
-- AzureNetworkAnalytics_CL (Malicious Flows allowed into our honeynet)
-
-## Architecture Before Hardening / Security Controls
-![Architecture Diagram](https://i.imgur.com/FtjTT1g.png)
+# Project Overview
+Built an automated identity onboarding solution using Okta Workflows to provision Office 365 access for newly created users. The workflow assigns users to the appropriate Office 365 access group and sends real-time email notifications to IT for visibility and audit tracking.
+# Tools & Technologies
+- Okta Identity Cloud
+- Okta Workflows
+- Microsoft Office 365
+- Office 365 Mail Connector
+- Group-based access provisioning
+# Workflow Logic
+- Triggered when a user is created in Okta
+- Retrieves user profile attributes
+- Validates user status to ensure the account is active
+- Automatically assigns the user to the Office 365 access group
+- Provisions Office 365 applications via group assignment
+- Sends an automated email notification confirming access provisioning
+![Architecture Diagram](https://i.imgur.com/9lXXVGS.png)
+![Architecture Diagram](https://i.imgur.com/Q5xOUz5.png)
+![Architecture Diagram](https://i.imgur.com/Z1KjUW3.png)
+# Business Impact
+- Eliminated manual Office 365 license assignment
+- Improved onboarding speed and consistency
+- Increased visibility through automated notifications
+- Reduced risk of missed or incorrect access assignments
+- Strengthened IAM governance and audit readiness
+# Key Skills Demonstrated
+- Identity lifecycle automation
+- Okta Workflows orchestration
+- SaaS application provisioning
+- Notification and audit workflows
+- Secure onboarding design
+  
 
 ## Architecture After Hardening / Security Controls
 ![Architecture Diagram](https://i.imgur.com/tWedVBQ.png)
