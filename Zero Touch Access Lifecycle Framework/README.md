@@ -66,7 +66,55 @@ Designed and implemented an automated identity governance workflow using Okta Wo
 Contractor Access Control Using Attribute-Based Grouping and Adaptive Policies in Okta
 # Project Overview
 Designed and implemented a secure contractor access model in Okta using attribute-based group rules and targeted authentication policies. The solution automatically classifies contractor accounts, enforces stronger password requirements, and applies multi-factor authentication to reduce risk associated with non-employee access.
+# Tools & Technologies
+- Okta Identity Cloud
+- Okta Universal Directory
+- Okta Group Rules
+- Okta Password Policies
+- Okta Enrollment and Authentication Policies
 ![Architecture Diagram](https://i.imgur.com/ZdRJthd.png)
+# Implementation Details
+- Attribute-Based Group Assignment
+- Created a Contractor group in Okta
+- Implemented a group rule that automatically adds users to the Contractor group when the department attribute equals contractor
+- Ensured dynamic, scalable group membership without manual intervention
+# Contractor Password Policy
+- Created a dedicated password policy for contractors
+- Enforced a minimum 12-character password length
+- Applied stricter password standards to contractor accounts to reduce credential-based risk
+# Authentication and Enrollment Policy
+- Configured a contractor-specific enrollment and authentication policy
+- Required authentication using:
+- Password
+- Okta Verify as an additional factor
+- Restricted authentication methods to prevent weaker or unsupported MFA options
+![Architecture Diagram](https://i.imgur.com/vjlLu7k.png)
+![Architecture Diagram](https://i.imgur.com/nQ5AQGJ.png)
+![Architecture Diagram](https://i.imgur.com/OZ5x3up.png)
+![Architecture Diagram](https://i.imgur.com/bFFgxzi.png)
+![Architecture Diagram](https://i.imgur.com/ysOeVNx.png)
+![Architecture Diagram](https://i.imgur.com/l4HN8oB.png)
+![Architecture Diagram](https://i.imgur.com/VVlqyo0.png)
+# Workflow Logic Summary
+- User account is created or updated
+- Okta evaluates the user’s department attribute
+- Users with a department set to contractor are automatically added to the Contractor group
+- Contractor-specific password and authentication policies are applied
+- Access and authentication behavior are enforced consistently across contractor accounts
+# Business Impact
+- Automated contractor classification and policy enforcement
+- Reduced manual effort in managing non-employee access
+- Improved security posture for third-party and temporary users
+- Ensured consistent application of stronger authentication controls
+- Supported least-privilege and zero-trust identity principles
+# Key Skills Demonstrated
+- Attribute-based access control (ABAC)
+- Identity lifecycle management
+- Secure authentication policy design
+- MFA enforcement and factor restrictions
+- Okta group rule configuration
+
+  
 
 
 In the "BEFORE" metrics analysis, all resources were initially deployed and left exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls configured with open access, while all other resources were deployed with public endpoints accessible from the Internet, rendering private endpoints unnecessary.
