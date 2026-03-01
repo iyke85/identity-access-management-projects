@@ -1,4 +1,4 @@
-# Zero Touch Access Lifecycle Framework
+# Zero Trust Access Lifecycle Framework
 ![Cloud Honeynet / SOC](https://i.imgur.com/EpDGiZG.png)
 
 # Introduction
