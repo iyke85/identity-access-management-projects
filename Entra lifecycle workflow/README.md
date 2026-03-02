@@ -94,47 +94,41 @@ Built an automated offboarding workflow in Microsoft Entra Lifecycle Workflows t
 ![Architecture Diagram](https://i.imgur.com/mygpmJ3.png)
 # Workflow Trigger
 The workflow is triggered based on the user’s termination date or last working day attribute, ensuring offboarding actions occur at the correct time without manual intervention.
+# Tasks Configured
+## 1. Remove User from Selected Groups
+- Automatically removes the user from predefined security and Microsoft 365 groups.
+## Impact:
+- Revokes application and resource access
+- Prevents lingering permissions
+- Reduces risk of unauthorized post-employment access
+## 2. Remove User from All Microsoft Teams
+- Removes the user from all associated Teams memberships.
+## Impact:
+- Restricts collaboration platform access
+- Protects internal communications
+-Prevents data exposure after departure
+## 3. Send Email Notification to Manager Before Last Day
+- Automatically sends a notification to the user’s manager before the employee’s final working day.
+## Impact:
+- Provides advanced visibility of access removal
+- Supports business continuity planning
+- Ensures coordination for knowledge transfer and asset return
 ![Architecture Diagram](https://i.imgur.com/6Pmq2Qr.png)
-# Implementation Details
-- Attribute-Based Group Assignment
-- Created a Contractor group in Okta
-- Implemented a group rule that automatically adds users to the Contractor group when the department attribute equals contractor
-- Ensured dynamic, scalable group membership without manual intervention
-# Contractor Password Policy
-- Created a dedicated password policy for contractors
-- Enforced a minimum 12-character password length
-- Applied stricter password standards to contractor accounts to reduce credential-based risk
-# Authentication and Enrollment Policy
-- Configured a contractor-specific enrollment and authentication policy
-- Required authentication using:
-- Password
-- Okta Verify as an additional factor
-- Restricted authentication methods to prevent weaker or unsupported MFA options
-![Architecture Diagram](https://i.imgur.com/vjlLu7k.png)
-![Architecture Diagram](https://i.imgur.com/nQ5AQGJ.png)
-![Architecture Diagram](https://i.imgur.com/OZ5x3up.png)
-![Architecture Diagram](https://i.imgur.com/bFFgxzi.png)
-![Architecture Diagram](https://i.imgur.com/ysOeVNx.png)
-![Architecture Diagram](https://i.imgur.com/l4HN8oB.png)
-![Architecture Diagram](https://i.imgur.com/VVlqyo0.png)
-# Workflow Logic Summary
-- User account is created or updated
-- Okta evaluates the user’s department attribute
-- Users with a department set to contractor are automatically added to the Contractor group
-- Contractor-specific password and authentication policies are applied
-- Access and authentication behavior are enforced consistently across contractor accounts
-# Business Impact
-- Automated contractor classification and policy enforcement
-- Reduced manual effort in managing non-employee access
-- Improved security posture for third-party and temporary users
-- Ensured consistent application of stronger authentication controls
-- Supported least-privilege and zero-trust identity principles
-# Key Skills Demonstrated
-- Attribute-based access control (ABAC)
+![Architecture Diagram](https://i.imgur.com/1Q0XEpp.png)
+![Architecture Diagram](https://i.imgur.com/idoPDTe.png)
+![Architecture Diagram](https://i.imgur.com/5XIB99b.png)
+## Business Value
+- Reduced manual offboarding workload
+- Improved timing and consistency of access removal
+- Minimized insider threat risk
+- Strengthened audit and compliance posture
+- Standardized exit procedures across the organization
+## Key Skills Demonstrated
 - Identity lifecycle management
-- Secure authentication policy design
-- MFA enforcement and factor restrictions
-- Okta group rule configuration
+- Access deprovisioning automation
+- Microsoft Entra Identity Governance configuration
+- Security-focused workflow design
+- Risk mitigation through automation
 
 ## Conclusion
 This project demonstrates a structured and automated approach to identity lifecycle management using Microsoft Entra Lifecycle Workflows. By enforcing consistent onboarding, role transitions, and offboarding controls, the solution strengthens security, reduces manual errors, and ensures timely access governance across the organization.
